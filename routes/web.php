@@ -29,3 +29,12 @@ Route::group(['namespace'=>'Admin'],function(){
         Route::post('/','LoginController@postLogin');
     });
 });
+
+// /*-------- Login ---------------*/
+// Route::get("register" , function(){
+//     return view::make("register");
+// });
+
+// Route::get("login" , function(){
+//     return view::make("login");
+// });
