@@ -15,6 +15,42 @@
 /*------- fronend-----------*/
 Route::get('/', 'Homecontroller@index');
 Route::get('/trang-chu','Homecontroller@index');
+Route::get('/',[
+    'as'=>'/',
+    'uses'=>'HomeController@index',
+
+]);
+
+Route::get('lienhe',[
+    'as'=>'lienhe',
+    'uses'=>'PageController@lienhe',
+
+]);
+
+Route::get('chitietsanpham',[
+    'as'=>'chitietsanpham',
+    'uses'=>'PageController@chitietsanpham',
+
+]);
+
+Route::get('sanpham',[
+    'as'=>'sanpham',
+    'uses'=>'PageController@sanpham',
+
+]);
+Route::get('gioithieu',[
+    'as'=>'gioithieu',
+    'uses'=>'PageController@gioithieu',
+
+]);
+
+/**SEARCH */
+Route::get('search',[
+    'as'=>'search',
+    'uses'=>'PageController@getsearch',
+]);
+
+
 
 
 
@@ -22,19 +58,51 @@ Route::get('/trang-chu','Homecontroller@index');
 /*------- backend-----------*/
 Route::get('/admin','Admincontroller@index');
 Route::get('/dashboard','Admincontroller@show_dashboard');
-Route::post('/admin-dashboard','Admincontroller@dashboard');
-Route::group(['namespace'=>'Admin'],function(){
-    Route::group(['prefix'=>'login'],function(){
-        Route::get('/','LoginController@getLogin');
-        Route::post('/','LoginController@postLogin');
-    });
+Route::get('/register' ,'RegisterController@getregister');
+Route::post('/register','RegisterController@postregister' );
+Route::get('login', function(){
+    return view('login');
 });
+Route::post('login','AuthController@login')->name('login');
+Route::get('logout','AuthControoler@logout');
 
-// /*-------- Login ---------------*/
-// Route::get("register" , function(){
-//     return view::make("register");
-// });
 
-// Route::get("login" , function(){
-//     return view::make("login");
-// });
+/** validateform */
+Route::get('validation','validationcontroller@getvalidation');
+Route::post('validation','validationcontroller@postvalidation');
+
+
+/**  User */
+Route::get('dangnhap',[
+    'as'=>'dangnhap',
+    'uses'=>'PageController@dangnhap'
+]);
+
+Route::get('dangky',[
+    'as'=>'dangky',
+    'uses'=>'PageController@dangky'
+]);
+
+Route::post('dangky',[
+    'as'=>'dangky',
+    'uses'=>'PageController@postdangky'
+]);
+
+Route::post('dangnhap',[
+    'as'=>'dangnhap',
+    'uses'=>'PageController@postdangnhap'
+]);
+
+Route::get('dangxuat',[
+    'as'=>'dangxuat',
+    'uses'=>'PageController@getdangxuat'
+]);
+
+
+
+/** PAGE ADMIN */
+Route::get('product',[
+    'as'=>'product',
+    'uses'=>'AdminController@getproduct'
+]);
+

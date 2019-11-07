@@ -1,94 +1,215 @@
 @extends('welcome')
 @section('content')
-<div class="features_items"><!--features_items-->
-						<h2 class="title text-center">Features Items</h2>
-						<div class="col-sm-4">
-							<div class="product-image-wrapper">
-								<div class="single-products">
-										<div class="productinfo text-center">
-											<img src="images/home/product1.jpg" alt="" />
-											<h2>$56</h2>
-											<p>Easy Polo Black Edition</p>
-											<a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Add to cart</a>
-										</div>
-										<div class="product-overlay">
-											<div class="overlay-content">
-												<h2>$56</h2>
-												<p>Easy Polo Black Edition</p>
-												<a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Add to cart</a>
-											</div>
-										</div>
-								</div>
-								<div class="choose">
-									<ul class="nav nav-pills nav-justified">
-										<li><a href="#"><i class="fa fa-plus-square"></i>Add to wishlist</a></li>
-										<li><a href="#"><i class="fa fa-plus-square"></i>Add to compare</a></li>
-									</ul>
-								</div>
+
+<div class="container">
+		<div id="content" class="space-top-none">
+			<div class="main-content">
+				<div class="space60">&nbsp;</div>
+				<div class="row">
+					<div class="col-sm-12">
+						<div class="beta-products-list">
+							<h4> Sản Phẩm Mới </h4>
+							<div class="beta-products-details">
+								<p class="pull-left">Tìm Thấy {{count($new_sanpham)}} Sản Phẩm</p>
+								<div class="clearfix"></div>
 							</div>
-						</div>
-					</div><!--features_items-->
 
-
-
-					<div class="category-tab"><!--category-tab-->
-						<div class="col-sm-12">
-							<ul class="nav nav-tabs">
-								<li class="active"><a href="#tshirt" data-toggle="tab">T-Shirt</a></li>
-								<li><a href="#blazers" data-toggle="tab">Blazers</a></li>
-								<li><a href="#sunglass" data-toggle="tab">Sunglass</a></li>
-								<li><a href="#kids" data-toggle="tab">Kids</a></li>
-								<li><a href="#poloshirt" data-toggle="tab">Polo shirt</a></li>
-							</ul>
-						</div>
-						<div class="tab-content">
-							<div class="tab-pane fade active in" id="tshirt" >
+							<div class="row">
+							@foreach($new_sanpham as $new)
 								<div class="col-sm-3">
-									<div class="product-image-wrapper">
-										<div class="single-products">
-											<div class="productinfo text-center">
-												<img src="images/home/gallery1.jpg" alt="" />
-												<h2>$56</h2>
-												<p>Easy Polo Black Edition</p>
-												<a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Add to cart</a>
-											</div>
+									<div class="single-item">
+										<div class="single-item-header">
+											<a href="{{route('chitietsanpham',$new->id)}}"><img src="https://media3.scdn.vn/img3/2019/7_22/At5J9N_simg_b5529c_250x250_maxb.jpg" alt=""></a>
+										</div>
+										<div class="single-item-body">
+											<p class="single-item-title">{{$new->name}}</p>
+											<p class="single-item-price">
+												<span class="flash-del">{{$new->price}}</span>
+												<span class="flash-sale">{{$new->promotionprice}}</span>
+											</p>
+										</div>
+										<div class="single-item-caption">
+											<a class="add-to-cart pull-left" href="shopping_cart.html"><i class="fa fa-shopping-cart"></i></a>
+											<a class="beta-btn primary" href="{{route('chitietsanpham')}}">Details <i class="fa fa-chevron-right"></i></a>
+											<div class="clearfix"></div>
+										</div>
+									</div>
+								</div>
+							@endforeach
+							</div>
+						</div> <!-- .beta-products-list -->
+
+						<div class="space50">&nbsp;</div>
+
+						<div class="beta-products-list">
+							<h4> Sản Phẩm Được Ưa Thích</h4>
+							<div class="beta-products-details">
+								<p class="pull-left">438 styles found</p>
+								<div class="clearfix"></div>
+							</div>
+							<div class="row">
+								<div class="col-sm-3">
+									<div class="single-item">
+										<div class="single-item-header">
+											<a href="{{route('chitietsanpham')}}"><img src="https://media3.scdn.vn/img3/2019/7_22/Z7U5kS_simg_b5529c_250x250_maxb.jpg" alt=""></a>
+										</div>
+										<div class="single-item-body">
+											<p class="single-item-title">Sample Woman Top</p>
+											<p class="single-item-price">
+												<span>$34.55</span>
+											</p>
+										</div>
+										<div class="single-item-caption">
+											<a class="add-to-cart pull-left" href="shopping_cart.html"><i class="fa fa-shopping-cart"></i></a>
+											<a class="beta-btn primary" href="{{route('chitietsanpham')}}">Details <i class="fa fa-chevron-right"></i></a>
+											<div class="clearfix"></div>
+										</div>
+									</div>
+								</div>
+								<div class="col-sm-3">
+									<div class="single-item">
+										<div class="ribbon-wrapper"><div class="ribbon sale">Sale</div></div>
+
+										<div class="single-item-header">
+											<a href="{{route('chitietsanpham')}}"><img src="https://media3.scdn.vn/img3/2019/9_14/qHaSVY_simg_b5529c_250x250_maxb.jpg" alt=""></a>
+										</div>
+										<div class="single-item-body">
+											<p class="single-item-title">Sample Woman Top</p>
+											<p class="single-item-price">
+												<span class="flash-del">$34.55</span>
+												<span class="flash-sale">$33.55</span>
+											</p>
+										</div>
+										<div class="single-item-caption">
+											<a class="add-to-cart pull-left" href="shopping_cart.html"><i class="fa fa-shopping-cart"></i></a>
+											<a class="beta-btn primary" href="{{route('chitietsanpham')}}">Details <i class="fa fa-chevron-right"></i></a>
+											<div class="clearfix"></div>
+										</div>
+									</div>
+								</div>
+								<div class="col-sm-3">
+									<div class="single-item">
+										<div class="single-item-header">
+											<a href="{{route('chitietsanpham')}}"><img src="https://media3.scdn.vn/img2/2018/10_16/D3bDC6_simg_b5529c_250x250_maxb.jpg" alt=""></a>
+										</div>
+										<div class="single-item-body">
+											<p class="single-item-title">Sample Woman Top</p>
+											<p class="single-item-price">
+												<span>$34.55</span>
+											</p>
+										</div>
+										<div class="single-item-caption">
+											<a class="add-to-cart pull-left" href="shopping_cart.html"><i class="fa fa-shopping-cart"></i></a>
+											<a class="beta-btn primary" href="{{route('chitietsanpham')}}">Details <i class="fa fa-chevron-right"></i></a>
+											<div class="clearfix"></div>
+										</div>
+									</div>
+								</div>
+								<div class="col-sm-3">
+									<div class="single-item">
+										<div class="single-item-header">
+											<a href="{{route('chitietsanpham')}}"><img src="https://media3.scdn.vn/img3/2019/9_9/32rYRt_simg_b5529c_250x250_maxb.jpg" alt=""></a>
+										</div>
+										<div class="single-item-body">
+											<p class="single-item-title">Sample Woman Top</p>
+											<p class="single-item-price">
+												<span>$34.55</span>
+											</p>
+										</div>
+										<div class="single-item-caption">
+											<a class="add-to-cart pull-left" href="shopping_cart.html"><i class="fa fa-shopping-cart"></i></a>
+											<a class="beta-btn primary" href="{{route('chitietsanpham')}}">Details <i class="fa fa-chevron-right"></i></a>
+											<div class="clearfix"></div>
 										</div>
 									</div>
 								</div>
 							</div>
-						</div>
-					</div><!--/category-tab-->
+							<div class="space40">&nbsp;</div>
+							<div class="row">
+								<div class="col-sm-3">
+									<div class="single-item">
+										<div class="single-item-header">
+											<a href="{{route('chitietsanpham')}}"><img src="https://media3.scdn.vn/img3/2019/9_25/rYejFf_simg_b5529c_250x250_maxb.jpg" alt=""></a>
+										</div>
+										<div class="single-item-body">
+											<p class="single-item-title">Sample Woman Top</p>
+											<p class="single-item-price">
+												<span>$34.55</span>
+											</p>
+										</div>
+										<div class="single-item-caption">
+											<a class="add-to-cart pull-left" href="shopping_cart.html"><i class="fa fa-shopping-cart"></i></a>
+											<a class="beta-btn primary" href="{{route('chitietsanpham')}}">Details <i class="fa fa-chevron-right"></i></a>
+											<div class="clearfix"></div>
+										</div>
+									</div>
+								</div>
+								<div class="col-sm-3">
+									<div class="single-item">
+										<div class="ribbon-wrapper"><div class="ribbon sale">Sale</div></div>
 
-
-					<div class="recommended_items"><!--recommended_items-->
-						<h2 class="title text-center">recommended items</h2>
-						
-						<div id="recommended-item-carousel" class="carousel slide" data-ride="carousel">
-							<div class="carousel-inner">
-								<div class="item active">	
-									<div class="col-sm-4">
-										<div class="product-image-wrapper">
-											<div class="single-products">
-												<div class="productinfo text-center">
-													<img src="images/home/recommend1.jpg" alt="" />
-													<h2>$56</h2>
-													<p>Easy Polo Black Edition</p>
-													<a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Add to cart</a>
-												</div>
-												
-											</div>
+										<div class="single-item-header">
+											<a href="{{route('chitietsanpham')}}"><img src="https://media3.scdn.vn/img3/2019/10_1/s1C20P_simg_b5529c_250x250_maxb.jpg" alt=""></a>
+										</div>
+										<div class="single-item-body">
+											<p class="single-item-title">Sample Woman Top</p>
+											<p class="single-item-price">
+												<span class="flash-del">$34.55</span>
+												<span class="flash-sale">$33.55</span>
+											</p>
+										</div>
+										<div class="single-item-caption">
+											<a class="add-to-cart pull-left" href="shopping_cart.html"><i class="fa fa-shopping-cart"></i></a>
+											<a class="beta-btn primary" href="{{route('chitietsanpham')}}">Details <i class="fa fa-chevron-right"></i></a>
+											<div class="clearfix"></div>
+										</div>
+									</div>
+								</div>
+								<div class="col-sm-3">
+									<div class="single-item">
+										<div class="single-item-header">
+											<a href="{{route('chitietsanpham')}}"><img src="https://media3.scdn.vn/img3/2019/6_19/3w84zQ_simg_b5529c_250x250_maxb.jpg" alt=""></a>
+										</div>
+										<div class="single-item-body">
+											<p class="single-item-title">Sample Woman Top</p>
+											<p class="single-item-price">
+												<span>$34.55</span>
+											</p>
+										</div>
+										<div class="single-item-caption">
+											<a class="add-to-cart pull-left" href="shopping_cart.html"><i class="fa fa-shopping-cart"></i></a>
+											<a class="beta-btn primary" href="{{route('chitietsanpham')}}">Details <i class="fa fa-chevron-right"></i></a>
+											<div class="clearfix"></div>
+										</div>
+									</div>
+								</div>
+								<div class="col-sm-3">
+									<div class="single-item">
+										<div class="single-item-header">
+											<a href="{{route('chitietsanpham')}}"><img src="https://media3.scdn.vn/img3/2019/1_4/aRkmlv_simg_b5529c_250x250_maxb.jpg" alt=""></a>
+										</div>
+										<div class="single-item-body">
+											<p class="single-item-title">Sample Woman Top</p>
+											<p class="single-item-price">
+												<span>$34.55</span>
+											</p>
+										</div>
+										<div class="single-item-caption">
+											<a class="add-to-cart pull-left" href="shopping_cart.html"><i class="fa fa-shopping-cart"></i></a>
+											<a class="beta-btn primary" href="{{route('chitietsanpham')}}">Details <i class="fa fa-chevron-right"></i></a>
+											<div class="clearfix"></div>
 										</div>
 									</div>
 								</div>
 							</div>
-							 <a class="left recommended-item-control" href="#recommended-item-carousel" data-slide="prev">
-								<i class="fa fa-angle-left"></i>
-							  </a>
-							  <a class="right recommended-item-control" href="#recommended-item-carousel" data-slide="next">
-								<i class="fa fa-angle-right"></i>
-							  </a>			
-						</div>
-					</div><!--/recommended_items-->
+						</div> <!-- .beta-products-list -->
+					</div>
+				</div> <!-- end section with sidebar and main content -->
+
+
+			</div> <!-- .main-content -->
+		</div> <!-- #content -->
+	</div> <!-- .container -->
 
 
 
