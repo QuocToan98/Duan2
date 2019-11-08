@@ -56,10 +56,11 @@
 							</div>
 
 							<div class="row">
+							@foreach($loaisp as $sp)
 								<div class="col-sm-4">
 									<div class="single-item">
 										<div class="single-item-header">
-											<a href="product.html"><img src="https://media3.scdn.vn/img3/2019/1_4/aRkmlv_simg_b5529c_250x250_maxb.jpg" alt=""></a>
+											<a href="product.html"><img src="frontend/image/{{$sp->image}}" alt=""></a>
 										</div>
 										<div class="single-item-body">
 											<p class="single-item-title">Sample Woman Top</p>
@@ -74,42 +75,7 @@
 										</div>
 									</div>
 								</div>
-								<div class="col-sm-4">
-									<div class="single-item">
-										<div class="single-item-header">
-											<a href="product.html"><img src="https://media3.scdn.vn/img2/2018/7_8/9omonw_simg_b5529c_250x250_maxb.jpg" alt=""></a>
-										</div>
-										<div class="single-item-body">
-											<p class="single-item-title">Sample Woman Top</p>
-											<p class="single-item-price">
-												<span>$34.55</span>
-											</p>
-										</div>
-										<div class="single-item-caption">
-											<a class="add-to-cart pull-left" href="shopping_cart.html"><i class="fa fa-shopping-cart"></i></a>
-											<a class="beta-btn primary" href="product.html">Details <i class="fa fa-chevron-right"></i></a>
-											<div class="clearfix"></div>
-										</div>
-									</div>
-								</div>
-								<div class="col-sm-4">
-									<div class="single-item">
-										<div class="single-item-header">
-											<a href="product.html"><img src="https://media3.scdn.vn/img3/2019/7_22/VRdwlX_simg_b5529c_250x250_maxb.png" alt=""></a>
-										</div>
-										<div class="single-item-body">
-											<p class="single-item-title">Sample Woman Top</p>
-											<p class="single-item-price">
-												<span>$34.55</span>
-											</p>
-										</div>
-										<div class="single-item-caption">
-											<a class="add-to-cart pull-left" href="shopping_cart.html"><i class="fa fa-shopping-cart"></i></a>
-											<a class="beta-btn primary" href="product.html">Details <i class="fa fa-chevron-right"></i></a>
-											<div class="clearfix"></div>
-										</div>
-									</div>
-								</div>
+							@endforeach	
 							</div>
 						</div> <!-- .beta-products-list -->
 

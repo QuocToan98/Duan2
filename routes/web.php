@@ -27,22 +27,15 @@ Route::get('lienhe',[
 
 ]);
 
-Route::get('chitietsanpham',[
-    'as'=>'chitietsanpham',
-    'uses'=>'PageController@chitietsanpham',
-
-]);
-
-Route::get('sanpham',[
-    'as'=>'sanpham',
-    'uses'=>'PageController@sanpham',
-
-]);
+Route::get('chitietsanpham/{id}','PageController@chitietsanpham');
+Route::get('sanpham/{$type}','PageController@sanpham');
 Route::get('gioithieu',[
     'as'=>'gioithieu',
     'uses'=>'PageController@gioithieu',
 
 ]);
+
+Route::get('themgiohang/{id}','PageController@getthemgiohang');
 
 /**SEARCH */
 Route::get('search',[
@@ -56,8 +49,6 @@ Route::get('search',[
 
 
 /*------- backend-----------*/
-Route::get('/admin','Admincontroller@index');
-Route::get('/dashboard','Admincontroller@show_dashboard');
 Route::get('/register' ,'RegisterController@getregister');
 Route::post('/register','RegisterController@postregister' );
 Route::get('login', function(){
@@ -101,8 +92,27 @@ Route::get('dangxuat',[
 
 
 /** PAGE ADMIN */
-Route::get('product',[
-    'as'=>'product',
-    'uses'=>'AdminController@getproduct'
+Route::get('dashboard',[
+    'as'=>'dashboard',
+    'uses'=>'AdminController@show_dashboard'
 ]);
+
+/** SẢN PHẨM */
+Route::get('product','ProductController@getproduct');
+Route::get('addproduct','ProductController@getaddproduct');
+Route::post('addproduct','ProductController@postaddproduct');
+Route::get('editproduct','ProductController@geteditproduct');
+Route::post('editproduct/{id}','ProductController@posteditproduct');
+Route::get('deleteproduct/{id}','ProductController@getdeleteproduct');
+
+
+/**DANH MỤC */
+ Route::get('category','AdminController@getcategory');
+ Route::post('category','AdminController@postcategory');
+
+Route::get('deletecategory/{id}','AdminController@getdeletecategory');
+Route::get('editcategory/{id}','AdminController@geteditcategory');
+Route::post('editcategory/{id}','AdminController@posteditcategory');
+
+
 

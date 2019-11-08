@@ -1,5 +1,5 @@
-@extends('dashboard')
-@section('content')
+@extends('admin.dashboard')
+@section('main')
 		
 	<div class="col-sm-9 col-sm-offset-3 col-lg-10 col-lg-offset-2 main">
 		<div class="row">
@@ -15,10 +15,20 @@
 							Sửa danh mục
 						</div>
 						<div class="panel-body">
+						@include('errors.note')
+						<form method="post">
 							<div class="form-group">
 								<label>Tên danh mục:</label>
-    							<input type="text" name="name" class="form-control" placeholder="Tên danh mục...">
+    							<input type="text" name="name" class="form-control" placeholder="Tên danh mục..." value="{{$cate->name}}">
 							</div>
+							<div class="form-group">
+								<button type="sumbit" name="sumbit" class="form-control btn btn-primary" placeholder="" value="Sửa"> Sửa</button>
+							</div>
+							<div class="form-group">
+								<a href="{{asset('category')}}" class="form-control btn btn-danger">Hủy Bỏ</a> 
+							</div>
+							{{csrf_field()}}
+						</form>
 						</div>
 					</div>
 			</div>

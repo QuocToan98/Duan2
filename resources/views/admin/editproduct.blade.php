@@ -1,5 +1,5 @@
-@extends('dashboard')
-@section('content')
+@extends('admin.dashboard')
+@section('main')
 		
 	<div class="col-sm-9 col-sm-offset-3 col-lg-10 col-lg-offset-2 main">
 		<div class="row">
@@ -55,7 +55,7 @@
 									</div>
 									<div class="form-group" >
 										<label>Miêu tả</label>
-										<textarea required name="description"></textarea>
+										<textarea class="ckeditor" required name="description"></textarea>
 									</div>
 									<div class="form-group" >
 										<label>Danh mục</label>

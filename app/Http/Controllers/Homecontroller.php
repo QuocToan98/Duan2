@@ -10,7 +10,7 @@ class Homecontroller extends Controller
 {
     //
     public function index(){
-        $new_sanpham = sanpham::where('new',1)->get();
+        $new_sanpham = sanpham::where('new',1)->offset(0)->limit(4)->get();
         return view('pages.home',compact('new_sanpham'));
       
    } 

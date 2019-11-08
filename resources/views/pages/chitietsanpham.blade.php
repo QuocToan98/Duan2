@@ -4,7 +4,7 @@
 <div class="inner-header">
 		<div class="container">
 			<div class="pull-left">
-				<h6 class="inner-title">Sản Phẩm</h6>
+				<h6 class="inner-title">Sản Phẩm {{$chitietsanpham->name}}</h6>
 			</div>
 			<div class="pull-right">
 				<div class="beta-breadcrumb font-large">
@@ -22,7 +22,7 @@
 
 					<div class="row">
 						<div class="col-sm-4">
-							<img src="https://media3.scdn.vn/img3/2019/6_19/3w84zQ_simg_b5529c_250x250_maxb.jpg" alt="">
+							<img src="image/{{$chitietsanpham->image}}" alt="">
 						</div>
 						<div class="col-sm-8">
 							<div class="single-item-body">

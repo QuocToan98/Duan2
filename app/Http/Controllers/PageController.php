@@ -9,11 +9,12 @@ use App\sanpham;
 use App\Http\Controllers\Redirect;
 use Session;
 use Auth;
+use App\Cart;
 
 class PageController extends Controller
 {
     //
-
+   
     public function lienhe(){
         return view('pages.lienhe');
     }
@@ -28,10 +29,19 @@ class PageController extends Controller
     }
 
 
-    public function sanpham(){
-        return view('pages.sanpham');
+    public function sanpham($type){
+        $loaisp = sanpham::where('id',$type)->get();
+        return view('pages.sanpham',compact('loaisp'));
     }
 
+    public function getthemgiohang(Request $req, $id){
+        $product = sanpham::find($id);
+        $oldCart = Session('cart')?Session::get('cart'):null;
+        $cart = new Cart($oldCart);
+        $cart->add($product, $id);
+        $req->session()->put('cart',$cart);
+        return redirect()->back();
+    }
 
 
     /** -------Đăng Ký------------- */

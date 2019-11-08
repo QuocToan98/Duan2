@@ -9,6 +9,7 @@
 <link href="css/datepicker3.css" rel="stylesheet">
 <link href="css/styles.css" rel="stylesheet">
 <script type="text/javascript" src="ckeditor/ckeditor.js"></script>
+<script type="text/javascript" src="../../editor/ckeditor/ckeditor.js"></script>
 <script src="js/lumino.glyphs.js"></script>
 </head>
 <body>
@@ -16,7 +17,7 @@
 		
 @include('admin.header')
     <div class="main-content">
-    @yield('content')
+    @yield('main')
     </div>
     @include('admin.footer')
 		  

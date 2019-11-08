@@ -1,5 +1,5 @@
-@extends('dashboard')
-@section('content')
+@extends('admin.dashboard')
+@section('main')
 		
 	<div class="col-sm-9 col-sm-offset-3 col-lg-10 col-lg-offset-2 main">
 		<div class="row">
@@ -15,10 +15,17 @@
 							Thêm danh mục
 						</div>
 						<div class="panel-body">
+						@include('errors.note')
+						  <form method="post">
 							<div class="form-group">
 								<label>Tên danh mục:</label>
-    							<input type="text" name="name" class="form-control" placeholder="Tên danh mục...">
+    							<input required type="text" name="name" class="form-control" placeholder="Tên danh mục...">
 							</div>
+							<div class="form-group">
+								<input type="submit" name="submit" class="form-control" placeholder="Tên danh mục..." value="Thêm mới">
+							</div>
+							{{csrf_field()}}
+						</form>	
 						</div>
 					</div>
 			</div>
@@ -35,55 +42,15 @@
 					                </tr>
 				              	</thead>
 				              	<tbody>
+								@foreach($catelist as $cate)
 								<tr>
-									<td>iPhone</td>
+									<td>{{$cate->name}}</td>
 									<td>
-			                    		<a href="#" class="btn btn-warning"><span class="glyphicon glyphicon-edit"></span> Sửa</a>
-			                    		<a href="#" onclick="return confirm('Bạn có chắc chắn muốn xóa?')" class="btn btn-danger"><span class="glyphicon glyphicon-trash"></span> Xóa</a>
+			                    		<a href="{{asset('editcategory').'/'.$cate->id}}" class="btn btn-warning"><span class="glyphicon glyphicon-edit"></span> Sửa</a>
+			                    		<a href="{{asset('deletecategory'.'/'.$cate->id)}}" onclick="return confirm('Bạn có chắc chắn muốn xóa?')" class="btn btn-danger"><span class="glyphicon glyphicon-trash"></span> Xóa</a>
 			                  		</td>
 			                  	</tr>
-			                  	<tr>
-									<td>Samsung</td>
-									<td>
-			                    		<a href="#" class="btn btn-warning"><span class="glyphicon glyphicon-edit"></span> Sửa</a>
-			                    		<a href="#" onclick="return confirm('Bạn có chắc chắn muốn xóa?')" class="btn btn-danger"><span class="glyphicon glyphicon-trash"></span> Xóa</a>
-			                  		</td>
-			                  	</tr> 
-			                  	<tr>
-									<td>Nokia</td>
-									<td>
-			                    		<a href="#" class="btn btn-warning"><span class="glyphicon glyphicon-edit"></span> Sửa</a>
-			                    		<a href="#" onclick="return confirm('Bạn có chắc chắn muốn xóa?')" class="btn btn-danger"><span class="glyphicon glyphicon-trash"></span> Xóa</a>
-			                  		</td>
-			                  	</tr> 
-			                  	<tr>
-									<td>HTC</td>
-									<td>
-			                    		<a href="#" class="btn btn-warning"><span class="glyphicon glyphicon-edit"></span> Sửa</a>
-			                    		<a href="#" onclick="return confirm('Bạn có chắc chắn muốn xóa?')" class="btn btn-danger"><span class="glyphicon glyphicon-trash"></span> Xóa</a>
-			                  		</td>
-			                  	</tr>
-			                  	<tr>
-									<td>LG</td>
-									<td>
-			                    		<a href="#" class="btn btn-warning"><span class="glyphicon glyphicon-edit"></span> Sửa</a>
-			                    		<a href="#" onclick="return confirm('Bạn có chắc chắn muốn xóa?')" class="btn btn-danger"><span class="glyphicon glyphicon-trash"></span> Xóa</a>
-			                  		</td>
-			                  	</tr>
-			                  	<tr>
-									<td>Sony</td>
-									<td>
-			                    		<a href="#" class="btn btn-warning"><span class="glyphicon glyphicon-edit"></span> Sửa</a>
-			                    		<a href="#" onclick="return confirm('Bạn có chắc chắn muốn xóa?')" class="btn btn-danger"><span class="glyphicon glyphicon-trash"></span> Xóa</a>
-			                  		</td>
-			                  	</tr>
-			                  	<tr>
-									<td>Motorola</td>
-									<td>
-			                    		<a href="#" class="btn btn-warning"><span class="glyphicon glyphicon-edit"></span> Sửa</a>
-			                    		<a href="#" onclick="return confirm('Bạn có chắc chắn muốn xóa?')" class="btn btn-danger"><span class="glyphicon glyphicon-trash"></span> Xóa</a>
-			                  		</td>
-			                  	</tr> 
+								@endforeach
 				                </tbody>
 				            </table>
 						</div>

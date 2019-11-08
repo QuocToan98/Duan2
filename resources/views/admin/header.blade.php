@@ -1,7 +1,7 @@
 <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
 		<div class="container-fluid">
 			<div class="navbar-header">
-				<a class="navbar-brand" href="#">Vietpro Admin</a>
+				<a class="navbar-brand" href="{{route('dashboard')}}">Fashion NTV Admin</a>
 				<ul class="user-menu">
 					<li class="dropdown pull-right">
 						<a href="#" class="dropdown-toggle" data-toggle="dropdown"><svg class="glyph stroked male-user"><use xlink:href="#stroked-male-user"></use></svg> User <span class="caret"></span></a>
@@ -22,23 +22,22 @@
 			<li class="dropdown">
                 <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Danh Mục <span class="caret"></span></a>
                 <ul class="dropdown-menu">
-                  <li><a href="#">Action</a></li>
-                  <li><a href="#">Another action</a></li>
-                  <li><a href="#">Something else here</a></li>
+                  <li><a href="{{asset('category')}}">Danh sách danh mục</a></li>
+                  <li><a href="{{asset('editcategory')}}">Sửa Danh Mục</a></li>
                 </ul>
               </li>
 			  <li class="dropdown">
                 <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Sản Phẩm <span class="caret"></span></a>
                 <ul class="dropdown-menu">
-                  <li><a href="{{route('product')}}">Danh sách sản phẩm</a></li>
-                  <li><a href="#">Another action</a></li>
-                  <li><a href="#">Something else here</a></li>
+                  <li><a href="{{asset('product')}}">Danh sách sản phẩm</a></li>
+                  <li><a href="{{asset('addproduct')}}">Thêm Sản Phẩm</a></li>
+                  <li><a href="{{asset('editproduct')}}">Sửa Sản Phẩm</a></li>
                 </ul>
               </li>
 			  <li class="dropdown">
                 <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Người Dùng <span class="caret"></span></a>
                 <ul class="dropdown-menu">
-                  <li><a href="#">Action</a></li>
+                  <li><a href="#">Người Dùng</a></li>
                   <li><a href="#">Another action</a></li>
                   <li><a href="#">Something else here</a></li>
                 </ul>

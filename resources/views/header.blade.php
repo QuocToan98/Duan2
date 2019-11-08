@@ -15,6 +15,7 @@
 						@else
 						<li><a href="{{route('dangky')}}">Đăng kí</a></li>
 						<li><a href="{{route('dangnhap')}}">Đăng nhập</a></li>
+						<a href="" title="Đăng Nhập Facebook"> <i class="fa fa-facebook-f "></i> </a>
 						@endif
 					</ul>
 				</div>
@@ -36,21 +37,24 @@
 					</div>
 
 					<div class="beta-comp">
+					@if(Session::has('cart'))
 						<div class="cart">
-							<div class="beta-select"><i class="fa fa-shopping-cart"></i> Giỏ hàng (Trống) <i class="fa fa-chevron-down"></i></div>
+							<div class="beta-select"><i class="fa fa-shopping-cart"></i> Giỏ hàng (@if(Session::has('cart')){{Session('cart')->totalQty
+							}}@else Trống @endif) <i class="fa fa-chevron-down"></i></div>
 							<div class="beta-dropdown cart-body">
+							@foreach($product_cart as $product)
 								<div class="cart-item">
 									<div class="media">
 										<a class="pull-left" href="#"><img src="assets/dest/images/products/cart/1.png" alt=""></a>
 										<div class="media-body">
-											<span class="cart-item-title">Đầm nữ</span>
-											<span class="cart-item-options">Size: XS; Colar: Navy</span>
-											<span class="cart-item-amount">1*<span>$49.50</span></span>
+											<span class="cart-item-title">{{$product['item']['name']}}</span>
+											<span class="cart-item-amount">{{$product['qty']}}*<span>{{$product['item']['unit_price']}}</span></span>
 										</div>
 									</div>
 								</div>
+							@endforeach	
 								<div class="cart-caption">
-									<div class="cart-total text-right">Tổng tiền: <span class="cart-total-value">$34.55</span></div>
+									<div class="cart-total text-right">Tổng tiền: {{Session('cart')->totalPrice}}<span class="cart-total-value"></span></div>
 									<div class="clearfix"></div>
 
 									<div class="center">
@@ -60,6 +64,7 @@
 								</div>
 							</div>
 						</div> <!-- .cart -->
+						@endif
 					</div>
 				</div>
 				<div class="clearfix"></div>
@@ -75,7 +80,7 @@
 						<li><a href="">Loại Sản phẩm</a>
 							<ul class="sub-menu">
 								@foreach($loai_sp as $loai)
-								<li><a href="{{route('sanpham')}}">{{$loai->name}}</a></li>
+								<li><a href="{{asset('sanpham').'/'.$loai->id}}">{{$loai->name}}</a></li>
 								@endforeach
 							</ul>
 						</li>

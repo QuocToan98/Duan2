@@ -1,5 +1,5 @@
-@extends('dashboard')
-@section('content')
+@extends('admin.dashboard')
+@section('main')
 
 <div class="container">
     <div id="navbar" class="row">
