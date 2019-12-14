@@ -6,9 +6,11 @@ $vendorDir = dirname(dirname(__FILE__));
 $baseDir = dirname($vendorDir);
 
 return array(
-    'PhpOption\\' => array($vendorDir . '/phpoption/phpoption/src'),
-    'Parsedown' => array($vendorDir . '/erusev/parsedown'),
+    'Prophecy\\' => array($vendorDir . '/phpspec/prophecy/src'),
+    'PayPal' => array($vendorDir . '/paypal/rest-api-sdk-php/lib'),
     'Mockery' => array($vendorDir . '/mockery/mockery/library'),
-    'Highlight\\' => array($vendorDir . '/scrivo/highlight.php'),
-    'HighlightUtilities\\' => array($vendorDir . '/scrivo/highlight.php'),
+    'JakubOnderka\\PhpConsoleHighlighter' => array($vendorDir . '/jakub-onderka/php-console-highlighter/src'),
+    'JakubOnderka\\PhpConsoleColor' => array($vendorDir . '/jakub-onderka/php-console-color/src'),
+    'Doctrine\\Common\\Inflector\\' => array($vendorDir . '/doctrine/inflector/lib'),
+    'Cron' => array($vendorDir . '/mtdowling/cron-expression/src'),
 );

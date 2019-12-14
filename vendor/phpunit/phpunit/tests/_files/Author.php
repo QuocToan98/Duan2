@@ -1,4 +1,4 @@
-<?php declare(strict_types=1);
+<?php
 /*
  * This file is part of PHPUnit.
  *
@@ -10,11 +10,13 @@
 
 /**
  * An author.
+ *
+ * @since      Class available since Release 3.6.0
  */
 class Author
 {
     // the order of properties is important for testing the cycle!
-    public $books = [];
+    public $books = array();
 
     private $name = '';
 

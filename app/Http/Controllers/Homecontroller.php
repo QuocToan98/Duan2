@@ -2,16 +2,44 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests;
 use Illuminate\Http\Request;
+use Auth;
 use App\User;
-use App\sanpham;
+use App\Oders;
+use DB;
 
-class Homecontroller extends Controller
+class HomeController extends Controller
 {
-    //
-    public function index(){
-        $new_sanpham = sanpham::where('new',1)->offset(0)->limit(4)->get();
-        return view('pages.home',compact('new_sanpham'));
-      
-   } 
+    /**
+     * Create a new controller instance.
+     *
+     * @return void
+     */
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
+
+    /**
+     * Show the application dashboard.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function index()
+    {
+        $oder = DB::table('oders')->where('c_id','=',Auth::user()->id)->get();
+        // print_r($oder); exit();
+        return view('member.user',['data'=>$oder]);
+    }
+    public function edit()
+   {
+        $id = Auth::user()->id;
+        $data = User::where('id',$id)->first();
+        return view('member.edit',['data'=>$data]);
+   }
+   
+   public function vechungtoi (){
+    return view('pages.lienhe');
+}
 }

@@ -1,58 +1,45 @@
-<!doctype html>
-<html lang="en">
-<head>
-	<meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>Fashion NTV </title>
-	<base href="{{asset('public/frontend')}}/"> 
-	<link href="https://cdn.jsdelivr.net/gh/vaibhav111tandon/vov.css@latest/vov.css" rel="stylesheet" type="text/css">
-	<link href='http://fonts.googleapis.com/css?family=Dosis:300,400' rel='stylesheet' type='text/css'>
-	<link href='http://fonts.googleapis.com/css?family=Open+Sans:400,300' rel='stylesheet' type='text/css'>
-	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css" />
-	<link rel="stylesheet" href="assets/dest/vendors/colorbox/example3/colorbox.css">
-	<link rel="stylesheet" href="assets/dest/rs-plugin/css/settings.css">
-	<link rel="stylesheet" href="assets/dest/rs-plugin/css/responsive.css">
-	<link rel="stylesheet" title="style" href="assets/dest/css/style.css">
-	<link rel="stylesheet" href="assets/dest/css/animate.css">
-	<link rel="stylesheet" title="style" href="assets/dest/css/huong-style.css">
-</head>
-<body>
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Laravel</title>
 
-    @include('header')
-    <div class="rev-slider">
-    @yield('content')
-    </div>
-    @include('footer')
+        <link href="https://fonts.googleapis.com/css?family=Lato:100" rel="stylesheet" type="text/css">
 
-<!-- include js files -->
-<script src="assets/dest/js/jquery.js"></script>
-	<script src="assets/dest/vendors/jqueryui/jquery-ui-1.10.4.custom.min.js"></script>
-	<script src="http://netdna.bootstrapcdn.com/bootstrap/3.1.0/js/bootstrap.min.js"></script>
-	<script src="assets/dest/vendors/bxslider/jquery.bxslider.min.js"></script>
-	<script src="assets/dest/vendors/colorbox/jquery.colorbox-min.js"></script>
-	<script src="assets/dest/vendors/animo/Animo.js"></script>
-	<script src="assets/dest/vendors/dug/dug.js"></script>
-	<script src="assets/dest/js/scripts.min.js"></script>
-	<script src="assets/dest/rs-plugin/js/jquery.themepunch.tools.min.js"></script>
-	<script src="assets/dest/rs-plugin/js/jquery.themepunch.revolution.min.js"></script>
-	<script src="assets/dest/js/waypoints.min.js"></script>
-	<script src="assets/dest/js/wow.min.js"></script>
-	<div id="fb-root"></div>
-	<script async defer crossorigin="anonymous" src="https://connect.facebook.net/vi_VN/sdk.js#xfbml=1&version=v4.0"></script>
+        <style>
+            html, body {
+                height: 100%;
+            }
 
-	<!--customjs-->
-	<script src="assets/dest/js/custom2.js"></script>
-	<script>
-	$(document).ready(function($) {    
-		$(window).scroll(function(){
-			if($(this).scrollTop()>150){
-			$(".header-bottom").addClass('fixNav')
-			}else{
-				$(".header-bottom").removeClass('fixNav')
-			}}
-		)
-	})
-	</script>
-</body>
+            body {
+                margin: 0;
+                padding: 0;
+                width: 100%;
+                display: table;
+                font-weight: 100;
+                font-family: 'Lato';
+            }
+
+            .container {
+                text-align: center;
+                display: table-cell;
+                vertical-align: middle;
+            }
+
+            .content {
+                text-align: center;
+                display: inline-block;
+            }
+
+            .title {
+                font-size: 96px;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="container">
+            <div class="content">
+                <div class="title">Laravel 5</div>
+            </div>
+        </div>
+    </body>
 </html>

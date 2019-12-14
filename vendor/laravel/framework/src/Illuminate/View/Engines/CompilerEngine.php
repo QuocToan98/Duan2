@@ -2,8 +2,8 @@
 
 namespace Illuminate\View\Engines;
 
-use ErrorException;
 use Exception;
+use ErrorException;
 use Illuminate\View\Compilers\CompilerInterface;
 
 class CompilerEngine extends PhpEngine
@@ -70,7 +70,7 @@ class CompilerEngine extends PhpEngine
      * @param  int  $obLevel
      * @return void
      *
-     * @throws \Exception
+     * @throws $e
      */
     protected function handleViewException(Exception $e, $obLevel)
     {
